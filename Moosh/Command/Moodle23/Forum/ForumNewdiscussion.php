@@ -64,6 +64,17 @@ class ForumNewdiscussion extends MooshCommand
         }
         $discussiondata->name = $discussiondata->subject;
 
+        $subject = json_decode(file_get_contents('https://en.wikipedia.org/w/api.php?action=query&list=random&rnlimit=1&format=json&rnnamespace=0'));
+        $subject = $subject->query->random[0]->title;
+        $discussiondata->subject = $subject;
+
+        $name = json_decode(file_get_contents('https://en.wikipedia.org/w/api.php?action=query&list=random&rnlimit=1&format=json&rnnamespace=0'));
+        $name = $name->query->random[0]->title;
+        $discussiondata->name = $name;
+
+        $message = file_get_contents('http://loripsum.net/api/4/headers/link/ul/decorate/code/bq');
+        $discussiondata->message = $message;
+
         $forumgenerator = $generator->get_plugin_generator('mod_forum');
         $record = $forumgenerator->create_discussion($discussiondata);
 
