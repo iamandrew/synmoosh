@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -40,7 +40,7 @@ class ApacheParseMissingFiles extends MooshCommand
 
         $this->checkFileArg($logfile);
 
-        require_once($this->mooshDir . '/includes/ApacheLogParser/Parser.class.php');
+        require_once($this->synmooshDir . '/includes/ApacheLogParser/Parser.class.php');
 
         $after = false;
         if($options['after']) {

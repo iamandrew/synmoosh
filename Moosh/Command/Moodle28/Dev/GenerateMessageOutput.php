@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,7 +27,7 @@ class GenerateMessageOutput extends MooshCommand
             cli_problem("Not creating new message output" . $this->arguments[0]);
             exit(1);
         }
-        run_external_command("cp -r '{$this->mooshDir}/vendor/danielneis/moodle-message_newprocessor' '$modPath'", "Copying from message output template failed");
+        run_external_command("cp -r '{$this->synmooshDir}/vendor/danielneis/moodle-message_newprocessor' '$modPath'", "Copying from message output template failed");
 
         if (file_exists("$modPath/.git")) {
             run_external_command("rm --interactive=never -r '$modPath/.git'", "Removing .git failed");

@@ -1,7 +1,7 @@
 <?php
 /**
  * Enrol user(s) in a course. Uses manual enrollment plugin.
- * moosh course-enrol
+ * synmoosh course-enrol
  *      -i --id
  *      -r --role
  *      courseid username1 [<username2> ...]

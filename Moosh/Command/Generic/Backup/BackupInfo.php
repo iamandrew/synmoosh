@@ -1,7 +1,7 @@
 <?php
 /**
  * Get moodle backup information
- * moosh backup-info      [<moodle_backup.mbz> ...]
+ * synmoosh backup-info      [<moodle_backup.mbz> ...]
  *
  * @todo       Handle tar gz archives.
  * @copyright  2016 Tomasz Muras

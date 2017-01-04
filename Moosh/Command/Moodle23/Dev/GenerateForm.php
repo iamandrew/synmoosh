@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -25,7 +25,7 @@ class GenerateForm extends MooshCommand
         //command may need to store some information in-between runs
         $this->loadSession();
 
-        $loader = new Twig_Loader_Filesystem($this->mooshDir.'/templates');
+        $loader = new Twig_Loader_Filesystem($this->synmooshDir.'/templates');
         $twig = new Twig_Environment($loader);
 
         $formName = '';

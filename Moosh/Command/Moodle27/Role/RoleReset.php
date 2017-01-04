@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  * Reset a role with a XML definition file.
  *
  * @author     David Balch.

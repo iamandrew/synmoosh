@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  * TBA
  *
  * @copyright  2012 onwards Tomasz Muras

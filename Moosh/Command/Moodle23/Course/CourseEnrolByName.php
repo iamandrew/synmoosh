@@ -2,7 +2,7 @@
 /**
  * Enrol user(s) in a course. Uses manual enrollment plugin. 
  * Is the cshortname option is set, then this option is used.
- * moosh course-enrolbyname
+ * synmoosh course-enrolbyname
  *      -i --id
  *      -r --role
  *      -f --firstname

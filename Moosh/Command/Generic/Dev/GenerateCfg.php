@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,8 +23,8 @@ class GenerateCfg extends MooshCommand
     public function execute()
     {
         //some variables you may want to use
-        //$this->cwd - the directory where moosh command was executed
-        //$this->mooshDir - moosh installation directory
+        //$this->cwd - the directory where synmoosh command was executed
+        //$this->synmooshDir - synmoosh installation directory
         //$this->expandedOptions - commandline provided options, merged with defaults
         //$this->topDir - top Moodle directory
         //$this->arguments[0] - first argument passed
@@ -36,7 +36,7 @@ class GenerateCfg extends MooshCommand
 
         // Find in source code to find usages.
         $cfg = $this->find_cfg_in_code();
-        require_once($this->mooshDir . '/includes/cfg_documentation.php');
+        require_once($this->synmooshDir . '/includes/cfg_documentation.php');
 
         echo <<<HEREDOC
 <?php

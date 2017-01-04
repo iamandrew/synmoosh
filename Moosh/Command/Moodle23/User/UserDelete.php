@@ -1,7 +1,7 @@
 <?php
 /**
  * Delete user by username.
- * moosh user-delete      [<username1> <username2> ...]
+ * synmoosh user-delete      [<username1> <username2> ...]
  *
  * @copyright  2013 onwards Matteo Mosangini
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

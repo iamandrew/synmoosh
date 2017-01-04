@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,7 +29,7 @@ class GenerateUserProfileField extends MooshCommand
             cli_error("Already exists: '$userprofilepath'");
         }
 
-        run_external_command("cp -r '{$this->mooshDir}/vendor/moodlehq/moodle-user_profile_field' '$userprofilepath'", "Copying from module template failed");
+        run_external_command("cp -r '{$this->synmooshDir}/vendor/moodlehq/moodle-user_profile_field' '$userprofilepath'", "Copying from module template failed");
 
         if (file_exists("$userprofilepath/.git")) {
             run_external_command("rm --interactive=never -r '$userprofilepath/.git'", "Removing .git failed");

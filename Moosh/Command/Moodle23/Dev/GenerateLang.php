@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -130,7 +130,7 @@ class GenerateLang extends MooshCommand
 
         //extract all lang strings from the lang file
         if ($langFile) {
-            require_once($this->mooshDir . '/vendor/moodlehq/moodle-local_amos/mlangparser.php');
+            require_once($this->synmooshDir . '/vendor/moodlehq/moodle-local_amos/mlangparser.php');
             $parser = mlang_parser_factory::get_parser('php');
             // todo: adapt this to use the appropriate moodle version
             $component = new mlang_component($this->pluginInfo['name'], 'en', mlang_version::by_branch('MOODLE_24_STABLE'));

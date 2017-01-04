@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -12,9 +12,9 @@ function get_commands_list($moodle_ver) {
     run_external_command("cp ../scripts/config$moodle_ver.sh config.sh", "Couldn't copy tests config file");
     $file = file_get_contents("config.sh");
 
-    $moosh = __DIR__ . '/../../moosh.php';
+    $synmoosh = __DIR__ . '/../../synmoosh.php';
     preg_match("/(?<=MOODLEDIR=)(.*)/", $file, $moodledir);
-    exec("cd $moodledir[0] && $moosh", $output);
+    exec("cd $moodledir[0] && $synmoosh", $output);
 
     $commands_list = array();
 

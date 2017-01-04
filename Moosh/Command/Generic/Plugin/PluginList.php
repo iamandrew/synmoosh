@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -18,7 +18,7 @@ class PluginList extends MooshCommand
     {
         parent::__construct('list', 'plugin');
 
-        $this->addOption('p|path:', 'path to plugins.json file', home_dir() . '/.moosh/plugins.json');
+        $this->addOption('p|path:', 'path to plugins.json file', home_dir() . '/.synmoosh/plugins.json');
         $this->addOption('v|versions', 'display plugin versions instead of supported moodle versions');
     }
 

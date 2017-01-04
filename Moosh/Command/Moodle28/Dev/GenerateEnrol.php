@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell - generate local plugin
+ * synmoosh - Moodle Shell - generate local plugin
  *
  * @copyright  2015 Daniel Neis
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@ class GenerateEnrol extends MooshCommand {
             cli_problem("Not creating new local " . $this->arguments[0]);
             exit(1);
         }
-        run_external_command("cp -r '{$this->mooshDir}/vendor/danielneis/moodle-enrol_newenrol' '$modPath'", "Copying from local template failed");
+        run_external_command("cp -r '{$this->synmooshDir}/vendor/danielneis/moodle-enrol_newenrol' '$modPath'", "Copying from local template failed");
 
         if (file_exists("$modPath/.git")) {
             run_external_command("rm --interactive=never -r '$modPath/.git'", "Removing .git failed");

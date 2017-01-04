@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="">
 
-    <title>moosh</title>
+    <title>synmoosh</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap-yeti.css" rel="stylesheet">
@@ -50,17 +50,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">moosh</a>
+          <a class="navbar-brand" href="/">synmoosh</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="https://github.com/tmuras/moosh">github</a></li>
+            <li><a href="https://github.com/tmuras/synmoosh">github</a></li>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/commands">commands</a></li>
             <li><a href="/dev">dev</a></li>
             <li><a href="/tutorials">tutorials</a></li>
           </ul>
-          <a href="https://github.com/tmuras/moosh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+          <a href="https://github.com/tmuras/synmoosh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -84,10 +84,10 @@
 without the plugin type prefix, so "forum", "assign" or "data" for example, and the course is specified
 by it's id.</p>
 
-<pre><code>moosh activity-add assign 2
-moosh activity-add --section 3 forum 4
-moosh activity-add --name "General course forum" --section 2 forum 3
-moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assign 2
+<pre><code>synmoosh activity-add assign 2
+synmoosh activity-add --section 3 forum 4
+synmoosh activity-add --name "General course forum" --section 2 forum 3
+synmoosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assign 2
 </code></pre>
 
 <p><span class="anchor" id="activity-delete"></span></p>
@@ -96,7 +96,7 @@ moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assig
 
 <p>Deletes activity with given module id.</p>
 
-<pre><code>moosh activity-delete 2
+<pre><code>synmoosh activity-delete 2
 </code></pre>
 
 <p><span class="anchor" id="admin-login"></span></p>
@@ -105,7 +105,7 @@ moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assig
 
 <p>Create a session (login) for admin user. Command returns session cookie name &amp; value.</p>
 
-<pre><code>moosh admin-login
+<pre><code>synmoosh admin-login
 </code></pre>
 
 <p><span class="anchor" id="apache-parse-extendedlog"></span></p>
@@ -124,9 +124,9 @@ moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assig
 </ol>
 
 
-<p>You can then parse resulting moodle.log file with moosh:</p>
+<p>You can then parse resulting moodle.log file with synmoosh:</p>
 
-<pre><code>moosh apache-parse-extendedlog /var/log/apache2/moodle.log
+<pre><code>synmoosh apache-parse-extendedlog /var/log/apache2/moodle.log
 </code></pre>
 
 <p><span class="anchor" id="apache-parse-missing-files"></span></p>
@@ -137,7 +137,7 @@ moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assig
 
 <p>Example 1. Parse file <code>apache.log</code> and search for missing files</p>
 
-<pre><code>moosh apache-parse-missing-files apache.log
+<pre><code>synmoosh apache-parse-missing-files apache.log
 </code></pre>
 
 <p><span class="anchor" id="apache-parse-perflog"></span></p>
@@ -148,7 +148,7 @@ moosh activity-add --name "Easy assignent" --section 2 --idnumber "ASD123" assig
 
 <p>Example 1.</p>
 
-<pre><code>moosh apache-parse-perflog apache.log
+<pre><code>synmoosh apache-parse-perflog apache.log
 </code></pre>
 
 <p>Sample line generated (INSERT):</p>
@@ -220,12 +220,12 @@ CREATE TABLE perflog (
 
 <p>Example 1. Check all users for easily crackable passwords and show them.</p>
 
-<pre><code>moosh audit-passwords -r
+<pre><code>synmoosh audit-passwords -r
 </code></pre>
 
 <p>Example 2. Check if user with id 17 has a weak password.</p>
 
-<pre><code>moosh audit-passwords -u 17
+<pre><code>synmoosh audit-passwords -u 17
 </code></pre>
 
 <p><span class="anchor" id="auth-list"></span></p>
@@ -236,7 +236,7 @@ CREATE TABLE perflog (
 
 <p>Example 1. List enabled authentication plugins.</p>
 
-<pre><code>moosh auth-list
+<pre><code>synmoosh auth-list
 </code></pre>
 
 <p><span class="anchor" id="auth-manage"></span></p>
@@ -247,12 +247,12 @@ CREATE TABLE perflog (
 
 <p>Example 1. Disable External database (db) auth plugin.</p>
 
-<pre><code>moosh auth-manage disable db
+<pre><code>synmoosh auth-manage disable db
 </code></pre>
 
 <p>Example 2. Move up Email-based self-registration (email).</p>
 
-<pre><code>moosh auth-manage up email 
+<pre><code>synmoosh auth-manage up email 
 </code></pre>
 
 <p><span class="anchor" id="block-add"></span></p>
@@ -262,14 +262,14 @@ CREATE TABLE perflog (
 <p>Add a new block instance to any system context (front page, category, course, module ...)
 Can add a block instance to a single course or to all courses in a category
 Can add a block to the category itself which will appear in all it's sub categories and courses
-(use "moosh block-add -h" for more help)</p>
+(use "synmoosh block-add -h" for more help)</p>
 
 <p>Example:</p>
 
-<pre><code>moosh block-add category 2 calendar_month admin-course-category side-pre -1
-moosh block-add -s category 2 calendar_month admin-course-category side-pre -1
-moosh block-add categorycourses 2 calendar_month course-view-* side-post 0
-moosh block-add course 32 calendar_month course-view-* side-post 0
+<pre><code>synmoosh block-add category 2 calendar_month admin-course-category side-pre -1
+synmoosh block-add -s category 2 calendar_month admin-course-category side-pre -1
+synmoosh block-add categorycourses 2 calendar_month course-view-* side-post 0
+synmoosh block-add course 32 calendar_month course-view-* side-post 0
 </code></pre>
 
 <p><span class="anchor" id="block-manage"></span></p>
@@ -280,8 +280,8 @@ moosh block-add course 32 calendar_month course-view-* side-post 0
 
 <p>Example:</p>
 
-<pre><code>moosh block-manage hide calendar
-moosh block-manage show calendar
+<pre><code>synmoosh block-manage hide calendar
+synmoosh block-manage show calendar
 </code></pre>
 
 <p><span class="anchor" id="category-config-set"></span></p>
@@ -292,12 +292,12 @@ moosh block-manage show calendar
 
 <p>Example 1. Set ID for category 1 to "id17".</p>
 
-<pre><code>moosh category-config-set 1 idnumber id17
+<pre><code>synmoosh category-config-set 1 idnumber id17
 </code></pre>
 
 <p>Example 2. Set description of category id 1 to "My Description".</p>
 
-<pre><code>moosh category-config-set 1 description "My Description" 
+<pre><code>synmoosh category-config-set 1 description "My Description" 
 </code></pre>
 
 <p><span class="anchor" id="category-create"></span></p>
@@ -308,12 +308,12 @@ moosh block-manage show calendar
 
 <p>Example 1: Add new top level category "mycat", invisible with no description.</p>
 
-<pre><code>moosh category-create mycat
+<pre><code>synmoosh category-create mycat
 </code></pre>
 
 <p>Example 2: Add category "mycat" under category id 6, set to visible and description to "My category".</p>
 
-<pre><code>moosh category-create -p 6 -v 1 -d "My category" mycat
+<pre><code>synmoosh category-create -p 6 -v 1 -d "My category" mycat
 </code></pre>
 
 <p><span class="anchor" id="category-export"></span></p>
@@ -324,12 +324,12 @@ moosh block-manage show calendar
 
 <p>Example 1: Export all categories to XML.</p>
 
-<pre><code>moosh category-export 0
+<pre><code>synmoosh category-export 0
 </code></pre>
 
 <p>Example 2: Export category with id 3 and all its sub categiries.</p>
 
-<pre><code>moosh category-export 3
+<pre><code>synmoosh category-export 3
 </code></pre>
 
 <p><span class="anchor" id="category-import"></span></p>
@@ -340,7 +340,7 @@ moosh block-manage show calendar
 
 <p>Example 1: Import all categories from XML.</p>
 
-<pre><code>moosh category-import categor-to-import.xml
+<pre><code>synmoosh category-import categor-to-import.xml
 </code></pre>
 
 <p><span class="anchor" id="category-list"></span></p>
@@ -351,12 +351,12 @@ moosh block-manage show calendar
 
 <p>Example 1: List all categories</p>
 
-<pre><code>moosh category-list
+<pre><code>synmoosh category-list
 </code></pre>
 
 <p>Example 2: List all categories with name "test" OR "foobar"</p>
 
-<pre><code>moosh category-list test foobar
+<pre><code>synmoosh category-list test foobar
 </code></pre>
 
 <p><span class="anchor" id="category-move"></span></p>
@@ -367,12 +367,12 @@ moosh block-manage show calendar
 
 <p>Example 1: Move the category with id 5 to be in the category with id 7</p>
 
-<pre><code>moosh category-move 5 7
+<pre><code>synmoosh category-move 5 7
 </code></pre>
 
 <p>Example 2: Make the category with id 3 a top-level category</p>
 
-<pre><code>moosh category-move 3 0
+<pre><code>synmoosh category-move 3 0
 </code></pre>
 
 <p><span class="anchor" id="chkdatadir"></span></p>
@@ -384,7 +384,7 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example:</p>
 
-<pre><code>sudo -u www-data moosh chkdatadir
+<pre><code>sudo -u www-data synmoosh chkdatadir
 </code></pre>
 
 <p><span class="anchor" id="cache-clear"></span></p>
@@ -393,7 +393,7 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>The same as "purge all caches" page.</p>
 
-<pre><code>moosh cache-clear
+<pre><code>synmoosh cache-clear
 </code></pre>
 
 <p><span class="anchor" id="cache-course-rebuild"></span></p>
@@ -404,12 +404,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Rebuild cache for course with id 2</p>
 
-<pre><code>moosh cache-course-rebuild 2
+<pre><code>synmoosh cache-course-rebuild 2
 </code></pre>
 
 <p>Example 2: Rebuild cache for all the courses.</p>
 
-<pre><code>moosh cache-course-rebuild -a
+<pre><code>synmoosh cache-course-rebuild -a
 </code></pre>
 
 <p><span class="anchor" id="code-check"></span></p>
@@ -420,12 +420,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1:</p>
 
-<pre><code>moosh code-check -p some/path/to/file.php
+<pre><code>synmoosh code-check -p some/path/to/file.php
 </code></pre>
 
 <p>Example 2:</p>
 
-<pre><code>moosh code-check -p some/path/to/dir
+<pre><code>synmoosh code-check -p some/path/to/dir
 </code></pre>
 
 <p><span class="anchor" id="cohort-create"></span></p>
@@ -436,12 +436,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Create two system cohorts "mycohort1" and "mycohort2".</p>
 
-<pre><code>moosh cohort-create mycohort1 mycohort2
+<pre><code>synmoosh cohort-create mycohort1 mycohort2
 </code></pre>
 
 <p>Example 2: Create cohort "my cohort18" with id "cohort18" under category id 2, with description "Long description".</p>
 
-<pre><code>moosh cohort-create -d "Long description" -i cohort18 -c 2 "my cohort18"
+<pre><code>synmoosh cohort-create -d "Long description" -i cohort18 -c 2 "my cohort18"
 </code></pre>
 
 <p><span class="anchor" id="cohort-enrol"></span></p>
@@ -452,12 +452,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Add user id 17 to cohort named "my cohort18"</p>
 
-<pre><code>moosh cohort-enrol -u 17 "my cohort18"
+<pre><code>synmoosh cohort-enrol -u 17 "my cohort18"
 </code></pre>
 
 <p>Example 2: Enroll cohort "my cohort18" to course id 4.</p>
 
-<pre><code>moosh cohort-enrol -c 4 "my cohort18"
+<pre><code>synmoosh cohort-enrol -c 4 "my cohort18"
 </code></pre>
 
 <p><span class="anchor" id="cohort-unenrol"></span></p>
@@ -468,7 +468,7 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Remove users 20,30,40 from cohort id=7.</p>
 
-<pre><code>moosh cohort-unenrol 7 20 30 40
+<pre><code>synmoosh cohort-unenrol 7 20 30 40
 </code></pre>
 
 <p><span class="anchor" id="config-get"></span></p>
@@ -479,17 +479,17 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Show all core config variables.</p>
 
-<pre><code>moosh config-get
+<pre><code>synmoosh config-get
 </code></pre>
 
 <p>Example 2: Show all config variables for "user"</p>
 
-<pre><code>moosh config-get user
+<pre><code>synmoosh config-get user
 </code></pre>
 
 <p>Example 3: Show core setting "dirroot"</p>
 
-<pre><code>moosh config-get core dirroot
+<pre><code>synmoosh config-get core dirroot
 </code></pre>
 
 <p><span class="anchor" id="config-plugins"></span></p>
@@ -500,12 +500,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Show all plugins from config_plugins table.</p>
 
-<pre><code>moosh config-plugins
+<pre><code>synmoosh config-plugins
 </code></pre>
 
 <p>Example 2: Show all themes that have some settings.</p>
 
-<pre><code>moosh config-plugins theme_
+<pre><code>synmoosh config-plugins theme_
 </code></pre>
 
 <p><span class="anchor" id="config-set"></span></p>
@@ -514,19 +514,19 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Set config variable. The syntax of the command is based on the set_config() Moodle API:</p>
 
-<pre><code>moosh config-set name value &lt;plugin&gt;
+<pre><code>synmoosh config-set name value &lt;plugin&gt;
 </code></pre>
 
 <p>If third argument (plugin) is not provided then the variable is set in the core Moodle configuration table.</p>
 
 <p>Example 1: Enable debug.</p>
 
-<pre><code>moosh config-set debug 32767
+<pre><code>synmoosh config-set debug 32767
 </code></pre>
 
 <p>Example 2: Set URL to logo for Sky High theme.</p>
 
-<pre><code>moosh config-set logo http://example.com/logo.png theme_sky_high
+<pre><code>synmoosh config-set logo http://example.com/logo.png theme_sky_high
 </code></pre>
 
 <p><span class="anchor" id="course-backup"></span></p>
@@ -537,12 +537,12 @@ You usually want to run the check as the same user that runs web server.</p>
 
 <p>Example 1: Backup course id=3 into default .mbz file in current directory:</p>
 
-<pre><code>moosh course-backup 3
+<pre><code>synmoosh course-backup 3
 </code></pre>
 
 <p>Example 2: Backup course id=3 and save it as /tmp/mybackup.mbz:</p>
 
-<pre><code>moosh course-backup -f /tmp/mybackup.mbz 3
+<pre><code>synmoosh course-backup -f /tmp/mybackup.mbz 3
 </code></pre>
 
 <p><span class="anchor" id="course-cleanup"></span></p>
@@ -554,7 +554,7 @@ it will only show which content could possibly be cleaned up.</p>
 
 <p>Example 1: Check if there is any HTML to be cleaned-up in course 3:</p>
 
-<pre><code>moosh course-cleanup 3
+<pre><code>synmoosh course-cleanup 3
 </code></pre>
 
 <p><span class="anchor" id="course-create"></span></p>
@@ -565,12 +565,12 @@ it will only show which content could possibly be cleaned up.</p>
 
 <p>Example 1: Create 10 new courses using bash/zim expansion</p>
 
-<pre><code>moosh course-create newcourse{1..10}
+<pre><code>synmoosh course-create newcourse{1..10}
 </code></pre>
 
 <p>Example 2: Create new course</p>
 
-<pre><code>moosh course-create --category 1 --fullname "full course name" --description "course description" --idnumber "course idnumber" shortname
+<pre><code>synmoosh course-create --category 1 --fullname "full course name" --description "course description" --idnumber "course idnumber" shortname
 </code></pre>
 
 <p><span class="anchor" id="course-config-set"></span></p>
@@ -581,12 +581,12 @@ it will only show which content could possibly be cleaned up.</p>
 
 <p>Example 1: set the shortname of a single course with id=42</p>
 
-<pre><code>moosh course-config-set course 42 shortname new_shortname
+<pre><code>synmoosh course-config-set course 42 shortname new_shortname
 </code></pre>
 
 <p>Example 2: set the format to topics for all courses in a category with id=7</p>
 
-<pre><code>moosh course-config-set category 7 format topics
+<pre><code>synmoosh course-config-set category 7 format topics
 </code></pre>
 
 <p><span class="anchor" id="course-delete"></span></p>
@@ -597,7 +597,7 @@ it will only show which content could possibly be cleaned up.</p>
 
 <p>Example 1: delete courses id 2,3 and 4.</p>
 
-<pre><code>moosh course-delete 2 3 4
+<pre><code>synmoosh course-delete 2 3 4
 </code></pre>
 
 <p><span class="anchor" id="course-enrol"></span></p>
@@ -609,12 +609,12 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Enroll username1 and username2 into course ID 21 as students.</p>
 
-<pre><code>moosh course-enrol 21 username1 username2
+<pre><code>synmoosh course-enrol 21 username1 username2
 </code></pre>
 
 <p>Example 2: Enroll user with id 21 into the course with id 31 as a non-editing teacher.</p>
 
-<pre><code>moosh course-enrol -r teacher -i 31 21
+<pre><code>synmoosh course-enrol -r teacher -i 31 21
 </code></pre>
 
 <p><span class="anchor" id="course-enrolbyname"></span></p>
@@ -625,7 +625,7 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Enroll user with firstname test42 and lastname user42 into the course with shortname T12345 as an editing teacher.</p>
 
-<pre><code>moosh course-enrolbyname -r editingteacher -f test42 -l user42 -c T12345
+<pre><code>synmoosh course-enrolbyname -r editingteacher -f test42 -l user42 -c T12345
 </code></pre>
 
 <p><span class="anchor" id="course-enrolleduser"></span></p>
@@ -636,7 +636,7 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1:</p>
 
-<pre><code>moosh course-enrolleduser student 4
+<pre><code>synmoosh course-enrolleduser student 4
 </code></pre>
 
 <p><span class="anchor" id="course-enableselfenrol"></span></p>
@@ -647,12 +647,12 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Enable self enrolment on a course without an enrolment key</p>
 
-<pre><code>moosh course-enableselfenrol 3
+<pre><code>synmoosh course-enableselfenrol 3
 </code></pre>
 
 <p>Example 2: Enable self enrolment on a course with an enrolment key</p>
 
-<pre><code>moosh course-enableselfenrol --key "an example enrolment key" 3
+<pre><code>synmoosh course-enableselfenrol --key "an example enrolment key" 3
 </code></pre>
 
 <p><span class="anchor" id="course-list"></span></p>
@@ -663,12 +663,12 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: List all courses with short or full name containing phrase 'student'</p>
 
-<pre><code>moosh course-list student
+<pre><code>synmoosh course-list student
 </code></pre>
 
 <p>Example 2: List all courses with short or full name containing phrase 'course' and display only id's of courses.</p>
 
-<pre><code>moosh course-list course -i
+<pre><code>synmoosh course-list course -i
 </code></pre>
 
 <p><span class="anchor" id="course-reset"></span></p>
@@ -678,9 +678,9 @@ Use -i for providing username IDs.</p>
 <p>Reset course by ID. With -s or --settings option you can provide any supported setting for the restore. The value for
  -s option is a string with each setting in format key=value separated by space. This means you'll need to quote this
   string with double or single quotes when running the command. unenrol_users setting requires an array as a value -
-  put at least one comma character (,) as a value to make moosh convert that into an array. Example:</p>
+  put at least one comma character (,) as a value to make synmoosh convert that into an array. Example:</p>
 
-<pre><code>moosh course-reset -s "reset_forum_all=1 reset_data=0 unenrol_users=6," 17
+<pre><code>synmoosh course-reset -s "reset_forum_all=1 reset_data=0 unenrol_users=6," 17
 </code></pre>
 
 <p>Add -n or --no-action to display all reset setting that would be used on course restore. When -n is used, no action is
@@ -741,17 +741,17 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Reset course with id=17 using default settings.</p>
 
-<pre><code>moosh course-reset 17
+<pre><code>synmoosh course-reset 17
 </code></pre>
 
 <p>Example 2: Show default settings  when resetting course id=17</p>
 
-<pre><code>moosh course-reset -n 17
+<pre><code>synmoosh course-reset -n 17
 </code></pre>
 
 <p>Example 3: Set unenrolment of participants with role id 5 and 6, and reset course with id=17</p>
 
-<pre><code>moosh course-reset -s "unenrol_users=5,6" 17
+<pre><code>synmoosh course-reset -s "unenrol_users=5,6" 17
 </code></pre>
 
 <p><span class="anchor" id="course-restore"></span></p>
@@ -762,12 +762,12 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Restore backup.mbz into category with id=1</p>
 
-<pre><code>moosh course-restore backup.mbz 1
+<pre><code>synmoosh course-restore backup.mbz 1
 </code></pre>
 
 <p>Example 2: Restore backup.mbz into existing course with id=3</p>
 
-<pre><code>moosh course-restore -e backup.mbz 3
+<pre><code>synmoosh course-restore -e backup.mbz 3
 </code></pre>
 
 <p><span class="anchor" id="course-unenrol"></span></p>
@@ -778,7 +778,7 @@ Use -i for providing username IDs.</p>
 
 <p>Example 1: Unenrol users with id 7, 9, 12 and 16 from course with id 2.</p>
 
-<pre><code>moosh course-unenrol 2 7 9 12 16
+<pre><code>synmoosh course-unenrol 2 7 9 12 16
 </code></pre>
 
 <p><span class="anchor" id="data-stats"></span></p>
@@ -787,7 +787,7 @@ Use -i for providing username IDs.</p>
 
 <p>Provides information on size of dataroot directory, dataroot/filedir subdirectory and total size of non-external files in moodle. Outpus data in json format when run using --json option.</p>
 
-<pre><code>moosh data-stats
+<pre><code>synmoosh data-stats
 </code></pre>
 
 <p><span class="anchor" id="debug-off"></span></p>
@@ -796,7 +796,7 @@ Use -i for providing username IDs.</p>
 
 <p>Turns off full debug and disables theme designer mode.</p>
 
-<pre><code>moosh debug-off
+<pre><code>synmoosh debug-off
 </code></pre>
 
 <p><span class="anchor" id="debug-on"></span></p>
@@ -805,7 +805,7 @@ Use -i for providing username IDs.</p>
 
 <p>Turns on full debug - all the options in debugging section of the settings plus enables theme designer mode.</p>
 
-<pre><code>moosh debug-on
+<pre><code>synmoosh debug-on
 </code></pre>
 
 <p><span class="anchor" id="dev-versionbump"></span></p>
@@ -817,7 +817,7 @@ Use -i for providing username IDs.</p>
 <p>Example:</p>
 
 <pre><code>cd &lt;moodle_root&gt;/mod/&lt;your_module&gt;
-moosh dev-versionbump
+synmoosh dev-versionbump
 </code></pre>
 
 <p><span class="anchor" id="download-moodle"></span></p>
@@ -828,12 +828,12 @@ moosh dev-versionbump
 
 <p>Example 1: Download latest Moodle (as set up in default_options.php).</p>
 
-<pre><code>moosh download-moodle
+<pre><code>synmoosh download-moodle
 </code></pre>
 
 <p>Example 2: Download latest Moodle 2.3.</p>
 
-<pre><code>    moosh download-moodle -v 2.3
+<pre><code>    synmoosh download-moodle -v 2.3
 </code></pre>
 
 <p><span class="anchor" id="event-fire"></span></p>
@@ -842,7 +842,7 @@ moosh dev-versionbump
 
 <p>Fire an event. Provide event name and JSON encoded data.</p>
 
-<pre><code>moosh event-fire report_log\\event\\report_viewed '{"contextid":1,"relateduserid":1,"other":{"groupid":1,"date":100,"modid":1,"modaction":"view","logformat":0}}' 
+<pre><code>synmoosh event-fire report_log\\event\\report_viewed '{"contextid":1,"relateduserid":1,"other":{"groupid":1,"date":100,"modid":1,"modaction":"view","logformat":0}}' 
 </code></pre>
 
 <p><span class="anchor" id="event-list"></span></p>
@@ -851,7 +851,7 @@ moosh dev-versionbump
 
 <p>List all events available in current Moodle installation.</p>
 
-<pre><code>moosh event-list
+<pre><code>synmoosh event-list
 </code></pre>
 
 <p><span class="anchor" id="file-datacheck"></span></p>
@@ -860,7 +860,7 @@ moosh dev-versionbump
 
 <p>Go through all files in Moodle data and check them for corruption. The check is to compare file's SHA to their file names.</p>
 
-<pre><code>moosh file-datacheck
+<pre><code>synmoosh file-datacheck
 </code></pre>
 
 <p><span class="anchor" id="file-dbcheck"></span></p>
@@ -869,35 +869,35 @@ moosh dev-versionbump
 
 <p>Check that all files in DB do exist in Moodle data.</p>
 
-<pre><code>moosh file-dbcheck
+<pre><code>synmoosh file-dbcheck
 </code></pre>
 
 <p><span class="anchor" id="file-delete"></span></p>
 
 <h2><a class="command-name">file-delete</a></h2>
 
-<p>Delete Moodle files from DB and possibly move them to trash. File IDs can be provided as arguments or on the standard input (with moosh file-delete -s).
+<p>Delete Moodle files from DB and possibly move them to trash. File IDs can be provided as arguments or on the standard input (with synmoosh file-delete -s).
 --flush option will remove the trashcan directory.</p>
 
 <p>Example 1: Remove files with IDs 10,20 and 30.</p>
 
-<pre><code>moosh file-delete 10 20 30
+<pre><code>synmoosh file-delete 10 20 30
 </code></pre>
 
 <p>Example 2: Remove all files with size greater than 100 bytes</p>
 
-<pre><code>moosh file-list -i 'filesize&gt;1000' | moosh file-delete -s
+<pre><code>synmoosh file-list -i 'filesize&gt;1000' | synmoosh file-delete -s
 </code></pre>
 
 <p>Example 3: Flush trashcan</p>
 
-<pre><code>moosh file-delete --flush
+<pre><code>synmoosh file-delete --flush
 </code></pre>
 
 <p>Example 4: Remove all automated backups and reclaim the space</p>
 
-<pre><code>moosh file-list -i 'component="backup" AND filearea="automated"' | moosh file-delete -s
-moosh file-delete --flush
+<pre><code>synmoosh file-list -i 'component="backup" AND filearea="automated"' | synmoosh file-delete -s
+synmoosh file-delete --flush
 </code></pre>
 
 <p><span class="anchor" id="file-list"></span></p>
@@ -929,22 +929,22 @@ contextid, component, filearea, itemid, filepath, filename, userid, filesize, mi
 
 <p>Example 1: Show all legacy files for a course, which context id is 15</p>
 
-<pre><code>moosh file-list "contextid=15 AND component='course' AND filearea='legacy'"
+<pre><code>synmoosh file-list "contextid=15 AND component='course' AND filearea='legacy'"
 </code></pre>
 
 <p>Example 2: Display full information on file with ID 17</p>
 
-<pre><code>moosh file-list -a id=162
+<pre><code>synmoosh file-list -a id=162
 </code></pre>
 
 <p>Example 3: Show all files from course 6</p>
 
-<pre><code>moosh file-list course=6
+<pre><code>synmoosh file-list course=6
 </code></pre>
 
 <p>Example 4: Super-combo. Get all course files and tar/bzip2 them up.</p>
 
-<pre><code>moosh file-list -i course=2 | moosh file-path -s -r | tar -C $(moosh config-get core dataroot) -T - -cjf files.tar.bz2
+<pre><code>synmoosh file-list -i course=2 | synmoosh file-path -s -r | tar -C $(synmoosh config-get core dataroot) -T - -cjf files.tar.bz2
 </code></pre>
 
 <p><span class="anchor" id="file-path"></span></p>
@@ -955,17 +955,17 @@ contextid, component, filearea, itemid, filepath, filename, userid, filesize, mi
 
 <p>Example 1: Show path to a file with contenthash da39a3ee5e6b4b0d3255bfef95601890afd80709</p>
 
-<pre><code>moosh file-path da39a3ee5e6b4b0d3255bfef95601890afd80709
+<pre><code>synmoosh file-path da39a3ee5e6b4b0d3255bfef95601890afd80709
 </code></pre>
 
 <p>Example 2: Show paths to files with ID bewteen 100 and 200</p>
 
-<pre><code>moosh file-list -i 'id&gt;100 AND id&lt;200' | moosh file-path -s
+<pre><code>synmoosh file-list -i 'id&gt;100 AND id&lt;200' | synmoosh file-path -s
 </code></pre>
 
 <p>Example 3: Like above but with no duplicates and show path relative to data root (-r)</p>
 
-<pre><code>moosh file-list -r -i 'id&gt;100 AND id&lt;200' | moosh file-path -s | sort | uniq
+<pre><code>synmoosh file-list -r -i 'id&gt;100 AND id&lt;200' | synmoosh file-path -s | sort | uniq
 </code></pre>
 
 <p><span class="anchor" id="file-upload"></span></p>
@@ -985,12 +985,12 @@ contextid, component, filearea, itemid, filepath, filename, userid, filesize, mi
 
 <p>Example 1: Upload file /home/user/file to private area of user with id 2.</p>
 
-<pre><code>moosh file-upload /home/user/file 2 
+<pre><code>synmoosh file-upload /home/user/file 2 
 </code></pre>
 
 <p>Example 2: Upload file /home/user/file and change its name for moodle.</p>
 
-<pre><code>moosh file-upload --filename="new file name" /home/user/file 2 
+<pre><code>synmoosh file-upload --filename="new file name" /home/user/file 2 
 </code></pre>
 
 <p><span class="anchor" id="filter-set"></span></p>
@@ -1002,7 +1002,7 @@ Second argument is a state, use On = 1 , Off/but available per course = -1 , Off
 
 <p>Example 1: Disable multimedia filter completely.</p>
 
-<pre><code>moosh filter-set mediaplugin -9999 
+<pre><code>synmoosh filter-set mediaplugin -9999 
 </code></pre>
 
 <p><span class="anchor" id="form-add"></span></p>
@@ -1010,20 +1010,20 @@ Second argument is a state, use On = 1 , Off/but available per course = -1 , Off
 <h2><a class="command-name">form-add</a></h2>
 
 <p>Adds an element to the form. If there is a form in your current working directory, that you have recently worked on with
-moosh (e.g. you have generated it with moosh generate-form), moosh will inject the code into that file. If moosh is not
+synmoosh (e.g. you have generated it with synmoosh generate-form), synmoosh will inject the code into that file. If synmoosh is not
  able to figure out where you would like the code added, it will display it on the standard output.</p>
 
-<pre><code>moosh form-add type name
+<pre><code>synmoosh form-add type name
 </code></pre>
 
 <p>Example 1: Display list of all available element templates.</p>
 
-<pre><code>moosh form-add
+<pre><code>synmoosh form-add
 </code></pre>
 
 <p>Example 2: Add (or display) the code for advanced checkbox element for Moodle form.</p>
 
-<pre><code>moosh form-add advcheckbox checkboxid
+<pre><code>synmoosh form-add advcheckbox checkboxid
 </code></pre>
 
 <p><span class="anchor" id="forum-newdiscussion"></span></p>
@@ -1036,8 +1036,8 @@ generator one.</p>
 
 <p>Example:</p>
 
-<pre><code>moosh forum-newdiscussion 3 7 2
-moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 7 2
+<pre><code>synmoosh forum-newdiscussion 3 7 2
+synmoosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 7 2
 </code></pre>
 
 <p><span class="anchor" id="generate-availability"></span></p>
@@ -1046,7 +1046,7 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 
 <p>Generate a code for new availability condition based on danielneis/moodle-availability_newavailability.</p>
 
-<pre><code>moosh generate-availability newcondition
+<pre><code>synmoosh generate-availability newcondition
 </code></pre>
 
 <p><span class="anchor" id="generate-block"></span></p>
@@ -1057,7 +1057,7 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 
 <p>Example: generate new block_abc</p>
 
-<pre><code>moosh generate-block abc
+<pre><code>synmoosh generate-block abc
 </code></pre>
 
 <p><span class="anchor" id="generate-cfg"></span></p>
@@ -1065,9 +1065,9 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 <h2><a class="command-name">generate-cfg</a></h2>
 
 <p>Generate fake class to get auto-completion for $CFG object. Properties genertated extracted from the current source code.
- See <a href="http://moosh-online.com/#cfg-auto-completion">setup instructions</a>.</p>
+ See <a href="http://synmoosh-online.com/#cfg-auto-completion">setup instructions</a>.</p>
 
-<pre><code>moosh generate-cfg &gt; config.class.php
+<pre><code>synmoosh generate-cfg &gt; config.class.php
 </code></pre>
 
 <p><span class="anchor" id="generate-enrol"></span></p>
@@ -1076,12 +1076,12 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 
 <p>Creates new local plugin under enrol/ based on template from https://github.com/danielneis/moodle-enrol_newenrol</p>
 
-<pre><code>moosh generate-enrol name
+<pre><code>synmoosh generate-enrol name
 </code></pre>
 
 <p>Example 1: Generate new plugin under enrol/mynewenrol</p>
 
-<pre><code>moosh generate-local mynewenrol
+<pre><code>synmoosh generate-local mynewenrol
 </code></pre>
 
 <p><span class="anchor" id="generate-filemanager"></span></p>
@@ -1090,7 +1090,7 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 
 <p>Shows how to code filepicker, based on https://github.com/AndyNormore/filemanager. Takes no arguments.</p>
 
-<pre><code>moosh generate-filemanager
+<pre><code>synmoosh generate-filemanager
 </code></pre>
 
 <p><span class="anchor" id="generate-form"></span></p>
@@ -1099,16 +1099,16 @@ moosh forum-newdiscussion --subject "Forum Name" --message "I am a long text" 3 
 
 <p>Creates a new file with the form class code. Will display on the screen a boilerplate code to use the form. If the form
 file already exists, both form &amp; form usage code will only be displayed on the standard output.
-moosh will try to figure out what plugin are you currently working on, based on your current working directory, and prefix
+synmoosh will try to figure out what plugin are you currently working on, based on your current working directory, and prefix
 the form accordingly.</p>
 
-<pre><code>moosh generate-form form_name
+<pre><code>synmoosh generate-form form_name
 </code></pre>
 
 <p>Example: Assuming you are in mod/flashcard directory, the command will create edit_form.php containing mod_flashcard_edit_form
 class. It will also display a boilerplate code on how can you use the form.</p>
 
-<pre><code>moosh generate-form edit
+<pre><code>synmoosh generate-form edit
 </code></pre>
 
 <p><span class="anchor" id="generate-gradereport"></span></p>
@@ -1117,12 +1117,12 @@ class. It will also display a boilerplate code on how can you use the form.</p>
 
 <p>Creates new grade report under grade/report based on the template from https://github.com/danielneis/moodle-gradereport_newgradereport.</p>
 
-<pre><code>moosh generate-gradereport report_name
+<pre><code>synmoosh generate-gradereport report_name
 </code></pre>
 
 <p>Example: Create new report under grade/report/beststudents</p>
 
-<pre><code>moosh generate-gradereport beststudents
+<pre><code>synmoosh generate-gradereport beststudents
 </code></pre>
 
 <p><span class="anchor" id="generate-gradeexport"></span></p>
@@ -1131,12 +1131,12 @@ class. It will also display a boilerplate code on how can you use the form.</p>
 
 <p>Creates new grade export under grade/export based on the template from https://github.com/danielneis/moodle-gradeexport_newgradeexport.</p>
 
-<pre><code>moosh generate-gradeexport export_name
+<pre><code>synmoosh generate-gradeexport export_name
 </code></pre>
 
 <p>Example: Create new export under grade/export/mycustomsystem</p>
 
-<pre><code>moosh generate-gradeexport mycustomsystem
+<pre><code>synmoosh generate-gradeexport mycustomsystem
 </code></pre>
 
 <p><span class="anchor" id="generate-lang"></span></p>
@@ -1146,12 +1146,12 @@ class. It will also display a boilerplate code on how can you use the form.</p>
 <p>Scan files given as arguments or currently remembered file, extract language strings and add them to the lang file if
 necessary.</p>
 
-<pre><code>moosh generate-lang [file1] [file2] [file3]...
+<pre><code>synmoosh generate-lang [file1] [file2] [file3]...
 </code></pre>
 
 <p>Example 1: Extract lang strings from edit_form.php.</p>
 
-<pre><code>moosh generate-lang edit_form.php
+<pre><code>synmoosh generate-lang edit_form.php
 </code></pre>
 
 <p><span class="anchor" id="generate-local"></span></p>
@@ -1160,12 +1160,12 @@ necessary.</p>
 
 <p>Creates new local plugin under local/ based on template from https://github.com/danielneis/moodle-local_newlocal</p>
 
-<pre><code>moosh generate-local name
+<pre><code>synmoosh generate-local name
 </code></pre>
 
 <p>Example 1: Generate new plugin under local/mynewlocal</p>
 
-<pre><code>moosh generate-local mynewlocal
+<pre><code>synmoosh generate-local mynewlocal
 </code></pre>
 
 <p><span class="anchor" id="generate-messageoutput"></span></p>
@@ -1174,12 +1174,12 @@ necessary.</p>
 
 <p>Creates new message output processor under message/output based on the template from https://github.com/danielneis/moodle-message_newprocessor.</p>
 
-<pre><code>moosh generate-messageoutput processor_name
+<pre><code>synmoosh generate-messageoutput processor_name
 </code></pre>
 
 <p>Example: Create new message output processor under message/output/flashcard</p>
 
-<pre><code>moosh generate-messageoutput flashcard
+<pre><code>synmoosh generate-messageoutput flashcard
 </code></pre>
 
 <p><span class="anchor" id="generate-module"></span></p>
@@ -1188,21 +1188,21 @@ necessary.</p>
 
 <p>Creates new module based on the NEWMODULE template from Moodle HQ.</p>
 
-<pre><code>moosh generate-module module_name
+<pre><code>synmoosh generate-module module_name
 </code></pre>
 
 <p>Example: Create new module under mod/flashcard</p>
 
-<pre><code>moosh generate-module flashcard
+<pre><code>synmoosh generate-module flashcard
 </code></pre>
 
-<p><span class="anchor" id="generate-moosh"></span></p>
+<p><span class="anchor" id="generate-synmoosh"></span></p>
 
-<h2><a class="command-name">generate-moosh</a></h2>
+<h2><a class="command-name">generate-synmoosh</a></h2>
 
-<p>Use moosh to create new moosh command.</p>
+<p>Use synmoosh to create new synmoosh command.</p>
 
-<pre><code>moosh generate-moosh category-command
+<pre><code>synmoosh generate-synmoosh category-command
 </code></pre>
 
 <p><span class="anchor" id="generate-qtype"></span></p>
@@ -1211,12 +1211,12 @@ necessary.</p>
 
 <p>Creates new question type based on the NEWMODULE template from https://github.com/jamiepratt/moodle-qtype_TEMPLATE.</p>
 
-<pre><code>moosh generate-qtype qtype_name
+<pre><code>synmoosh generate-qtype qtype_name
 </code></pre>
 
 <p>Example: Create new module under question/type/myqtype</p>
 
-<pre><code>moosh generate-qtype myqtype
+<pre><code>synmoosh generate-qtype myqtype
 </code></pre>
 
 <p><span class="anchor" id="generate-userprofilefield"></span></p>
@@ -1225,7 +1225,7 @@ necessary.</p>
 
 <p>Creates new profile field based on a template.</p>
 
-<pre><code>moosh generate-userprofilefield newfield
+<pre><code>synmoosh generate-userprofilefield newfield
 </code></pre>
 
 <p><span class="anchor" id="generate-ws"></span></p>
@@ -1234,7 +1234,7 @@ necessary.</p>
 
 <p>Creates new local plugin for WS development based on moodlehq/moodle-local_wstemplate.</p>
 
-<pre><code>moosh generate-ws newws
+<pre><code>synmoosh generate-ws newws
 </code></pre>
 
 <p><span class="anchor" id="gradebook-import"></span></p>
@@ -1248,7 +1248,7 @@ necessary.</p>
 
 <p>Example:</p>
 
-<pre><code>moosh gradebook-import --test gradebook.csv course_id
+<pre><code>synmoosh gradebook-import --test gradebook.csv course_id
 </code></pre>
 
 <p>Possible column headers to us:</p>
@@ -1268,7 +1268,7 @@ necessary.</p>
 
 <p>Example 1:</p>
 
-<pre><code>moosh info
+<pre><code>synmoosh info
 </code></pre>
 
 <p><span class="anchor" id="info-plugins"></span></p>
@@ -1279,7 +1279,7 @@ necessary.</p>
 
 <p>Example 1: Show all plugin types.</p>
 
-<pre><code>moosh info-plugins
+<pre><code>synmoosh info-plugins
 </code></pre>
 
 <p><span class="anchor" id="languages-update"></span></p>
@@ -1290,7 +1290,7 @@ necessary.</p>
 
 <p>Example 1: Update all language packs.</p>
 
-<pre><code>moosh languages-update
+<pre><code>synmoosh languages-update
 </code></pre>
 
 <p><span class="anchor" id="maintenance-off"></span></p>
@@ -1299,7 +1299,7 @@ necessary.</p>
 
 <p>Disable maintenance mode.</p>
 
-<pre><code>moosh maintenance-off
+<pre><code>synmoosh maintenance-off
 </code></pre>
 
 <p><span class="anchor" id="maintenance-on"></span></p>
@@ -1308,12 +1308,12 @@ necessary.</p>
 
 <p>Enable maintenance mode.</p>
 
-<pre><code>moosh maintenance-on
+<pre><code>synmoosh maintenance-on
 </code></pre>
 
 <p>A maintenance message can also be set:</p>
 
-<pre><code>moosh maintenace-on -m "Example message"
+<pre><code>synmoosh maintenace-on -m "Example message"
 </code></pre>
 
 <p><span class="anchor" id="module-config"></span></p>
@@ -1324,8 +1324,8 @@ necessary.</p>
 
 <p>Example:</p>
 
-<pre><code>moosh module-config set dropbox dropbox_secret 123
-moosh module-config get dropbox dropbox_secret ?
+<pre><code>synmoosh module-config set dropbox dropbox_secret 123
+synmoosh module-config get dropbox dropbox_secret ?
 </code></pre>
 
 <p><span class="anchor" id="module-manage"></span></p>
@@ -1336,8 +1336,8 @@ moosh module-config get dropbox dropbox_secret ?
 
 <p>Example:</p>
 
-<pre><code>moosh module-manage hide scorm
-moosh module-manage show scorm
+<pre><code>synmoosh module-manage hide scorm
+synmoosh module-manage show scorm
 </code></pre>
 
 <p><span class="anchor" id="module-reinstall"></span>
@@ -1347,8 +1347,8 @@ moosh module-manage show scorm
 
 <p>Example:</p>
 
-<pre><code>moosh module-reinstall block_html
-moosh module-reinstall mod_book
+<pre><code>synmoosh module-reinstall block_html
+synmoosh module-reinstall mod_book
 </code></pre>
 
 <p><span class="anchor" id="nagios-check"></span>
@@ -1356,7 +1356,7 @@ moosh module-reinstall mod_book
 
 <p>Create session login and login to a site using curl. Return error in Nagios format if login was not successful.</p>
 
-<pre><code>moosh nagios-check
+<pre><code>synmoosh nagios-check
 </code></pre>
 
 <p><span class="anchor" id="php-eval"></span></p>
@@ -1367,7 +1367,7 @@ moosh module-reinstall mod_book
 
 <p>Example:</p>
 
-<pre><code>moosh php-eval 'var_dump(get_object_vars($CFG))'
+<pre><code>synmoosh php-eval 'var_dump(get_object_vars($CFG))'
 </code></pre>
 
 <p><span class="anchor" id="plugin-install"></span></p>
@@ -1378,7 +1378,7 @@ moosh module-reinstall mod_book
 
 <p>Example:</p>
 
-<pre><code>moosh plugin-install mod_quickmail 20160101
+<pre><code>synmoosh plugin-install mod_quickmail 20160101
 </code></pre>
 
 <p><span class="anchor" id="plugin-list"></span></p>
@@ -1389,12 +1389,12 @@ moosh module-reinstall mod_book
 
 <p>Example 1: list all plugins available on https://moodle.org/plugins</p>
 
-<pre><code>moosh plugin-list
+<pre><code>synmoosh plugin-list
 </code></pre>
 
 <p>Example 2: download all modules available for version 2.8 or later</p>
 
-<pre><code>moosh plugin-list  | grep '^mod_' | grep 2.8 | grep -o '[^,]*$' | wget -i -
+<pre><code>synmoosh plugin-list  | grep '^mod_' | grep 2.8 | grep -o '[^,]*$' | wget -i -
 </code></pre>
 
 <p><span class="anchor" id="plugin-uninstall"></span></p>
@@ -1406,7 +1406,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example:</p>
 
-<pre><code>moosh plugin-uninstall theme_elegance
+<pre><code>synmoosh plugin-uninstall theme_elegance
 </code></pre>
 
 <p><span class="anchor" id="question-import"></span></p>
@@ -1417,7 +1417,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example: import question from file path/to/question.xml to quiz with id 2</p>
 
-<pre><code>moosh question-import path/to/question.xml 2
+<pre><code>synmoosh question-import path/to/question.xml 2
 </code></pre>
 
 <p><span class="anchor" id="user-create"></span></p>
@@ -1428,24 +1428,24 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: create user "testuser" with the all default profile fields.</p>
 
-<pre><code>moosh user-create testuser
+<pre><code>synmoosh user-create testuser
 </code></pre>
 
 <p>Example 2: create user "testuser" with the all the optional values</p>
 
-<pre><code>moosh user-create --password pass --email me@example.com --digest 2 --city Szczecin --country PL --firstname "first name" --lastname name testuser
+<pre><code>synmoosh user-create --password pass --email me@example.com --digest 2 --city Szczecin --country PL --firstname "first name" --lastname name testuser
 </code></pre>
 
 <p>Example 3: use bash/zsh expansion to create 10 users</p>
 
-<pre><code>moosh user-create testuser{1..10}
+<pre><code>synmoosh user-create testuser{1..10}
 </code></pre>
 
 <p>The users will have unique email addresses based on the user name (testuser1, testuser2, testuser3...).</p>
 
 <p>Example 4: create a user with LDAP authentication</p>
 
-<pre><code>moosh user-create --auth ldap --password NONE  --email joe.blogs@domain.tld --city "Some City" --country IE --firstname "Joe" --lastname "Blogs" jblogs
+<pre><code>synmoosh user-create --auth ldap --password NONE  --email joe.blogs@domain.tld --city "Some City" --country IE --firstname "Joe" --lastname "Blogs" jblogs
 </code></pre>
 
 <p><span class="anchor" id="user-delete"></span></p>
@@ -1456,12 +1456,12 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: delete user testuser</p>
 
-<pre><code>moosh user-delete testuser
+<pre><code>synmoosh user-delete testuser
 </code></pre>
 
 <p>Example 2: delete user testuser1 and user testuser2</p>
 
-<pre><code>moosh user-delete testuser1 testuser2
+<pre><code>synmoosh user-delete testuser1 testuser2
 </code></pre>
 
 <p><span class="anchor" id="user-export"></span></p>
@@ -1472,7 +1472,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1:</p>
 
-<pre><code>moosh user-export testuser
+<pre><code>synmoosh user-export testuser
 </code></pre>
 
 <p><span class="anchor" id="user-getidbyname"></span></p>
@@ -1489,22 +1489,22 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: list user accounts with id number higher than 10 and sort them by email</p>
 
-<pre><code>moosh user-list --sort email "id &gt; 10"
+<pre><code>synmoosh user-list --sort email "id &gt; 10"
 </code></pre>
 
 <p>Example 2: list users with first name bruce and username batman</p>
 
-<pre><code>moosh user-list "name = 'bruce' AND username = 'batman'"
+<pre><code>synmoosh user-list "name = 'bruce' AND username = 'batman'"
 </code></pre>
 
 <p>Example 3: list users enrolled in course id 2</p>
 
-<pre><code>moosh user-list --course 2
+<pre><code>synmoosh user-list --course 2
 </code></pre>
 
 <p>Example 4: list teachers enrolled in course id 2 that never accessed that course</p>
 
-<pre><code>moosh user-list --course 2 --course-role editingteacher --course-inactive
+<pre><code>synmoosh user-list --course 2 --course-role editingteacher --course-inactive
 </code></pre>
 
 <p><span class="anchor" id="user-mod"></span></p>
@@ -1515,27 +1515,27 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: change admin's user password and email</p>
 
-<pre><code>moosh user-mod --email my@email.com --password newpwd admin
+<pre><code>synmoosh user-mod --email my@email.com --password newpwd admin
 </code></pre>
 
 <p>Example 2: change authentication method for users with ids 17,20,22</p>
 
-<pre><code>moosh user-mod -i --auth manual 17 20 22
+<pre><code>synmoosh user-mod -i --auth manual 17 20 22
 </code></pre>
 
 <p>Example 3: use bash/zsh expansion to change password for users with ID between 100 and 200</p>
 
-<pre><code>moosh user-mod -i --password newpwd {100..200}
+<pre><code>synmoosh user-mod -i --password newpwd {100..200}
 </code></pre>
 
 <p>Example 4: update all users</p>
 
-<pre><code>moosh user-mod --email my@email.com --password newpwd --auth manual --all
+<pre><code>synmoosh user-mod --email my@email.com --password newpwd --auth manual --all
 </code></pre>
 
 <p>Example 4: set user as global super user</p>
 
-<pre><code>moosh user-mod -g 
+<pre><code>synmoosh user-mod -g 
 </code></pre>
 
 <p><span class="anchor" id="random-label"></span></p>
@@ -1546,12 +1546,12 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: Add 5 labels to course id 17.</p>
 
-<pre><code>for i in {1..5}; do moosh random-label 17; done
+<pre><code>for i in {1..5}; do synmoosh random-label 17; done
 </code></pre>
 
 <p>Example 2: Add label that will contain string " uniquetext " inside.</p>
 
-<pre><code>moosh random-label -i ' uniquetext ' 17
+<pre><code>synmoosh random-label -i ' uniquetext ' 17
 </code></pre>
 
 <p><span class="anchor" id="report-concurrency"></span></p>
@@ -1564,7 +1564,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: Get concurrent users between 20-01-2014 and 27-01-2014 with 30 minut periods.</p>
 
-<pre><code>moosh report-concurrency -f 20140120 -t 20140127 -p 30
+<pre><code>synmoosh report-concurrency -f 20140120 -t 20140127 -p 30
 </code></pre>
 
 <p><span class="anchor" id="role-create"></span></p>
@@ -1575,7 +1575,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: Create role with short name "newstudentrole" a description, name an archetype</p>
 
-<pre><code>moosh role-create -d "Role description" -a student -n "Role name" newstudentrole
+<pre><code>synmoosh role-create -d "Role description" -a student -n "Role name" newstudentrole
 </code></pre>
 
 <p><span class="anchor" id="role-delete"></span></p>
@@ -1586,12 +1586,12 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Example 1: Delete role "newstudentrole"</p>
 
-<pre><code>moosh role-delete newstudentrole
+<pre><code>synmoosh role-delete newstudentrole
 </code></pre>
 
 <p>Example 2: Delete role id 10.</p>
 
-<pre><code>moosh role-delete -i 10
+<pre><code>synmoosh role-delete -i 10
 </code></pre>
 
 <p><span class="anchor" id="role-reset"></span></p>
@@ -1600,7 +1600,7 @@ If you do not have write permissions on the plugins' folder it will advice you w
 
 <p>Reset give role's permissions from the file.</p>
 
-<pre><code>moosh role-reset 1 definition_file.txt
+<pre><code>synmoosh role-reset 1 definition_file.txt
 </code></pre>
 
 <p><span class="anchor" id="role-update-capability"></span></p>
@@ -1614,12 +1614,12 @@ and finally, "contextid" (where 1 is system wide)</p>
 
 <p>Example 1: update "student" role (roleid=5) "mod/forumng:grade" capability, system wide (contextid=1)</p>
 
-<pre><code>moosh student mod/forumng:grade allow 1
+<pre><code>synmoosh student mod/forumng:grade allow 1
 </code></pre>
 
 <p>Example 2: update "editingteacher" role (roleid=3) "mod/forumng:grade" capability, system wide (contextid=1)</p>
 
-<pre><code>moosh -i 3 mod/forumng:grade prevent 1
+<pre><code>synmoosh -i 3 mod/forumng:grade prevent 1
 </code></pre>
 
 <p><span class="anchor" id="role-update-contextlevel"></span></p>
@@ -1633,12 +1633,12 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example 1: Allow "student" role to be set on block level</p>
 
-<pre><code>moosh student -block-on
+<pre><code>synmoosh student -block-on
 </code></pre>
 
 <p>Example 2: Prevent "manager" role to be set on course level</p>
 
-<pre><code>moosh manager -course-off
+<pre><code>synmoosh manager -course-off
 </code></pre>
 
 <p><span class="anchor" id="sql-cli"></span></p>
@@ -1649,7 +1649,7 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example:</p>
 
-<pre><code>moosh sql-cli
+<pre><code>synmoosh sql-cli
 </code></pre>
 
 <p><span class="anchor" id="sql-dump"></span></p>
@@ -1660,7 +1660,7 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example 1: dump database to backup.sql file</p>
 
-<pre><code>moosh sql-dump &gt; backup.sql
+<pre><code>synmoosh sql-dump &gt; backup.sql
 </code></pre>
 
 <p><span class="anchor" id="sql-run"></span></p>
@@ -1671,12 +1671,12 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example 1: Set the country of all the users to Poland</p>
 
-<pre><code>moosh sql-run "update {user} set country='PL'"
+<pre><code>synmoosh sql-run "update {user} set country='PL'"
 </code></pre>
 
 <p>Example 2: Count the number of rows is log table</p>
 
-<pre><code>moosh sql-run "select count(*) from {log}"
+<pre><code>synmoosh sql-run "select count(*) from {log}"
 </code></pre>
 
 <p><span class="anchor" id="theme-info"></span></p>
@@ -1687,7 +1687,7 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example:</p>
 
-<pre><code>moosh theme-info
+<pre><code>synmoosh theme-info
 </code></pre>
 
 <p><span class="anchor" id="webservice-call"></span></p>
@@ -1698,7 +1698,7 @@ and add "-on" or "-off" to the caontext level name to turn it on or off.</p>
 
 <p>Example: Get list of all courses enroled for a user</p>
 
-<pre><code>moosh webservice-call --token 4ac42118db3ee8d4b1ae78f2c1232afd --params userid=3 core_enrol_get_users_courses
+<pre><code>synmoosh webservice-call --token 4ac42118db3ee8d4b1ae78f2c1232afd --params userid=3 core_enrol_get_users_courses
 </code></pre>
 
           </div>

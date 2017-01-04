@@ -1,5 +1,5 @@
 ---
-title: moosh - Moodle commandline helper
+title: synmoosh - Moodle commandline helper
 layout: default
 ---
 
@@ -7,24 +7,24 @@ Introduction
 ============
 
 Moosh stands for MOOdle SHell. It is a commandline tool that will allow you to perform most common Moodle tasks. It's inspired by Drush - a similar tool for Drupal.
-moosh is licenced under GNU GPL v3 or any later.
+synmoosh is licenced under GNU GPL v3 or any later.
 
 I've created it when I realized how much time I waste each time I debug/test some Moodle issue and need to setup my environment.
-Here is for example how you can create 5 Moodle user accounts with moosh:
+Here is for example how you can create 5 Moodle user accounts with synmoosh:
 
     cd /moodle/root/installation
-    moosh user-create user_{1..5}
+    synmoosh user-create user_{1..5}
 
 Basic usage
 ===========
 
-Basically cd into your Moodle installation & run moosh and one of the many commands it implements. Some (few) commands will work when not in Moodle directory - for example:
+Basically cd into your Moodle installation & run synmoosh and one of the many commands it implements. Some (few) commands will work when not in Moodle directory - for example:
 
-    moosh download-moodle
+    synmoosh download-moodle
 
-If you don't know the exact name of the command you want to run but know the part of it, run moosh with the substring:
+If you don't know the exact name of the command you want to run but know the part of it, run synmoosh with the substring:
 
-    moosh user
+    synmoosh user
 
 As a result you will get a list of all commands that contain string "user":
 
@@ -37,7 +37,7 @@ As a result you will get a list of all commands that contain string "user":
 
 Moosh will always try to use Moodle's superuser. But you can change on what user you want to execute specific command. For example:
 
-    moosh -u testuser course-backup 1 
+    synmoosh -u testuser course-backup 1 
 
 will execute command `course-backup` for user with name `testuser`
 
@@ -53,12 +53,12 @@ Installation from Ubuntu package
 
      sudo apt-add-repository ppa:zabuch/ppa
      sudo apt-get update
-     sudo apt-get install moosh
+     sudo apt-get install synmoosh
 
 Installation from Moodle package
 --------------------------------
 
-Download moosh package from Moodle: https://moodle.org/plugins/view.php?id=522, unpack and cd into the directory.
+Download synmoosh package from Moodle: https://moodle.org/plugins/view.php?id=522, unpack and cd into the directory.
 Follow "common steps" below.
 
 Installation from Moodle git
@@ -66,8 +66,8 @@ Installation from Moodle git
 
 Install composer - see http://getcomposer.org/download .
 
-    git clone git://github.com/tmuras/moosh.git
-    cd moosh
+    git clone git://github.com/tmuras/synmoosh.git
+    cd synmoosh
     composer install
 
 Common steps for Moodle package and git
@@ -75,11 +75,11 @@ Common steps for Moodle package and git
 
 Link to a location that is set in your $PATH, eg:
 
-    ln -s $PWD/moosh.php ~/bin/moosh
+    ln -s $PWD/synmoosh.php ~/bin/synmoosh
 
 Or system-wide:
 
-    sudo ln -s $PWD/moosh.php /usr/local/bin/moosh
+    sudo ln -s $PWD/synmoosh.php /usr/local/bin/synmoosh
 
 
 xdotool integration
@@ -89,7 +89,7 @@ You can automate some of the manual tasks (like refreshing browser page after ad
 
     apt-get install xdotool
 
-Then go to ~/.mooshrc.php and add these flags:
+Then go to ~/.synmooshrc.php and add these flags:
 
     $defaultOptions['global']['xdotool'] = true;
     $defaultOptions['global']['browser_string'] = 'Mozilla Firefox';
@@ -102,9 +102,9 @@ Change Mozilla Firefox to your preferred browser and you're good to go. Commands
 $CFG auto-completion
 ====================
 
-You can use moosh to generate fake class moodle_config which will contain public properties extracted from your current
+You can use synmoosh to generate fake class moodle_config which will contain public properties extracted from your current
  Moodle. Properties will have PHP doc based on Moodle's documentation. If you're lazy, simply 
- <a href="https://raw.githubusercontent.com/tmuras/moosh/master/includes/config.class.php">download</a> <a href="https://github.com/tmuras/moosh/blob/master/includes/config.class.php">config class for Moodle 2.9</a>.
+ <a href="https://raw.githubusercontent.com/tmuras/synmoosh/master/includes/config.class.php">download</a> <a href="https://github.com/tmuras/synmoosh/blob/master/includes/config.class.php">config class for Moodle 2.9</a>.
   
 To get it to work with PHP Storm, simply drop that file somewhere into your Moodle project files.
 ![$CFG autocompletion in PHP Storm](/images/cfg_autocompletion_phpstorm.png)
@@ -115,7 +115,7 @@ With NetBeans, add line in your code:
      
 ![$CFG autocompletion in PHP Storm](/images/cfg_autocompletion_netbeans.png)
      
-# <a name="praise"></a>moosh praise
+# <a name="praise"></a>synmoosh praise
 
 
 > _Fan-effing-tastic! Thank you. I've used Drush and it is so incredibly
@@ -132,6 +132,6 @@ With NetBeans, add line in your code:
 
 <br />
 
-> _Using moosh, we have cut the number of hours required to prepare for each quarter from 120 to about 12.  Thanks for the awesome tool!_
+> _Using synmoosh, we have cut the number of hours required to prepare for each quarter from 120 to about 12.  Thanks for the awesome tool!_
 >
 > Kevin Metcalf

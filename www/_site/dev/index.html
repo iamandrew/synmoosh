@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="">
 
-    <title>moosh</title>
+    <title>synmoosh</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap-yeti.css" rel="stylesheet">
@@ -50,17 +50,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">moosh</a>
+          <a class="navbar-brand" href="/">synmoosh</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="https://github.com/tmuras/moosh">github</a></li>
+            <li><a href="https://github.com/tmuras/synmoosh">github</a></li>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/commands">commands</a></li>
             <li><a href="/dev">dev</a></li>
             <li><a href="/tutorials">tutorials</a></li>
           </ul>
-          <a href="https://github.com/tmuras/moosh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+          <a href="https://github.com/tmuras/synmoosh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -76,20 +76,20 @@
                <div class="">
                     <h1>Vagrant</h1>
 
-<p>moosh comes with vagrant setup, which will give you the following moosh development environment:</p>
+<p>synmoosh comes with vagrant setup, which will give you the following synmoosh development environment:</p>
 
 <ul>
 <li>Ubuntu 16.04 with PHP 7</li>
 <li>Apache configured to run as user vagrant (so no problems with the file permissions)</li>
 <li>MySQL</li>
 <li>Latest Moodle 3.1 installed</li>
-<li>composer and moosh installed from source</li>
+<li>composer and synmoosh installed from source</li>
 </ul>
 
 
 <p>Simply:</p>
 
-<pre><code>% git clone https://github.com/tmuras/moosh
+<pre><code>% git clone https://github.com/tmuras/synmoosh
 % vagrant up
 </code></pre>
 
@@ -101,26 +101,26 @@
 <pre><code> % vagrant ssh
 </code></pre>
 
-<p>You can run moosh inside the Moodle 3.1 installation:</p>
+<p>You can run synmoosh inside the Moodle 3.1 installation:</p>
 
 <pre><code> % cd /var/www/html/moodle
- % moosh user-list
+ % synmoosh user-list
 </code></pre>
 
-<p>The source code of moosh is under vagrant's home in /home/vagrant/moosh-src and calling "moosh"
- command will actually call /home/vagrant/moosh-src/moosh.php.</p>
+<p>The source code of synmoosh is under vagrant's home in /home/vagrant/synmoosh-src and calling "synmoosh"
+ command will actually call /home/vagrant/synmoosh-src/synmoosh.php.</p>
 
-<p>The directory /home/vagrant/moosh-src is shared with your host machine as "moosh-src", in directory
+<p>The directory /home/vagrant/synmoosh-src is shared with your host machine as "synmoosh-src", in directory
  where you have cloned the git repository. This is so you can use your favourite IDE on your host PC.</p>
 
-<p>So - no excuses now - use pre-configured environment, develop some awesome moosh commands and send
+<p>So - no excuses now - use pre-configured environment, develop some awesome synmoosh commands and send
  them to me!</p>
 
 <h1>Performance information</h1>
 
 <p>You can use global option -t (or long version --performance) to show extra performance information collected while the command runs:</p>
 
-<pre><code>% mooshdev -t course-backup 2
+<pre><code>% synmooshdev -t course-backup 2
 ... &lt;output cut&gt; ...
 *** PERFORMANCE INFORMATION ***
 Run from 2014-11-26T11:21:15+01:00 to 2014-11-26T11:21:16+01:00
@@ -136,13 +136,13 @@ Memory peak: 43679224/45088768  (41.66 MB/43.00 MB)
 
 <h1>Functional tests</h1>
 
-<p>There are no unit tests implemented for testing moosh at the moment. Instead, a set of functional tests have been developed.
+<p>There are no unit tests implemented for testing synmoosh at the moment. Instead, a set of functional tests have been developed.
 They are basically very simple bash scripts located in tests directory and named after command they test, e.g.:</p>
 
 <pre><code>tests/file-list.sh
 </code></pre>
 
-<p>is used to test moosh file-list command.</p>
+<p>is used to test synmoosh file-list command.</p>
 
 <p>All tests start with some common boilerplate:</p>
 
@@ -156,14 +156,14 @@ cd $MOODLEDIR
 
 <p>and then the test of the commmand is performed. Script should return (exit) with 0 if test is a success, with 1 otherwise. Here is test from file-list.sh:</p>
 
-<pre><code>if moosh file-list id=6 | grep -w "grumpycat"; then
+<pre><code>if synmoosh file-list id=6 | grep -w "grumpycat"; then
   exit 0
 else
   exit 1
 fi
 </code></pre>
 
-<p>All tests are then run with run-tests.php script, which in turn will generate status on the <a href="http://moosh-online.com/ci/">continues integration</a> page.</p>
+<p>All tests are then run with run-tests.php script, which in turn will generate status on the <a href="http://synmoosh-online.com/ci/">continues integration</a> page.</p>
 
 <h2>Environment</h2>
 
@@ -179,32 +179,32 @@ All commands will be run in a known, prepared environment with users, courses pr
 
 <p>Then make sure your shell user is in group adm.</p>
 
-<p>Create 2 directories for Moodle data, eg: ~/data/moosh-test/moodledata25 and ~/data/moosh-test/moodledata26. Give apache user write access to Moodle data dirs.</p>
+<p>Create 2 directories for Moodle data, eg: ~/data/synmoosh-test/moodledata25 and ~/data/synmoosh-test/moodledata26. Give apache user write access to Moodle data dirs.</p>
 
-<p>Create 2 empty databases: mooshtest_25 and mooshtest_26.</p>
+<p>Create 2 empty databases: synmooshtest_25 and synmooshtest_26.</p>
 
 <pre><code>#Get Moodle source code for 2.6 and 2.7
-cd ~/www/html/moosh/
+cd ~/www/html/synmoosh/
 git clone https://github.com/moodle/moodle.git moodle25
 cd moodle25
 git checkout 3d176316cc1791e258a7c1b2118fd35976c9bcae
 cp config-dist.php config.php
 #configure settings in config.php down to &amp; including $CFG-&gt;dataroot
 
-cd ~/www/html/moosh/
+cd ~/www/html/synmoosh/
 cp -r moodle25 moodle26
 cd moodle26
 git checkout ba05f57
 cp config-dist.php config.php
 #configure settings in config.php down to &amp; including $CFG-&gt;dataroot
 
-git clone https://github.com/tmuras/moosh
-cd moosh/tests
+git clone https://github.com/tmuras/synmoosh
+cd synmoosh/tests
 #Configure DATA,DB,DBUSER and DBPASSWORD in restore_all.sh and run it
 ./restore_all.sh
 </code></pre>
 
-<p>Login to Moodle instances (e.g. http://localhost/moosh/moodle26/) as 'admin' using password 'a' and check if it works OK after restore.</p>
+<p>Login to Moodle instances (e.g. http://localhost/synmoosh/moodle26/) as 'admin' using password 'a' and check if it works OK after restore.</p>
 
 <pre><code>cp config-template.sh config25.sh
 cp config-template.sh config26.sh
@@ -214,15 +214,15 @@ cp config-template.sh config26.sh
 php run-tests.php
 </code></pre>
 
-<h1>Contributing to moosh</h1>
+<h1>Contributing to synmoosh</h1>
 
 <ol>
 <li>Fork the project on github.</li>
 <li>Follow "installation from Moodle git" section.</li>
 <li>Look at existing plugins to see how they are done.</li>
-<li><p>Create new plugin/update existing one. You can use moosh itself to generate a new command from a template for you:</p>
+<li><p>Create new plugin/update existing one. You can use synmoosh itself to generate a new command from a template for you:</p>
 
-<p> moosh generate-moosh category-command</p></li>
+<p> synmoosh generate-synmoosh category-command</p></li>
 <li><p>Update this README.md file with the example on how to use your plugin.</p></li>
 <li>For the extra bonus create a functional test to cover your command.</li>
 <li>Send me pull request.</li>
@@ -231,10 +231,10 @@ php run-tests.php
 
 <h1>Local commands</h1>
 
-<p>You can add your own, local commands to moosh by storing them in the same structure as moosh does but under ~/.moosh.
+<p>You can add your own, local commands to synmoosh by storing them in the same structure as synmoosh does but under ~/.synmoosh.
 For example, to create your custom command dev-mytest that works with any Moodle version, you would put it under:</p>
 
-<pre><code>~/.moosh/Moosh/Command/Generic/Dev/MyTest.php
+<pre><code>~/.synmoosh/Moosh/Command/Generic/Dev/MyTest.php
 </code></pre>
 
                </div>

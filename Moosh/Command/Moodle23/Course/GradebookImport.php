@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -49,8 +49,8 @@ class GradebookImport extends MooshCommand
             $course = $DB->get_record('course', array('id' => $this->arguments[1]), '*', MUST_EXIST);
         }
 
-        $iid = \csv_import_reader::get_new_iid('moosh-gradebook');
-        $csvimport = new \csv_import_reader($iid, 'moosh-gradebook');
+        $iid = \csv_import_reader::get_new_iid('synmoosh-gradebook');
+        $csvimport = new \csv_import_reader($iid, 'synmoosh-gradebook');
 
         $csvimport->load_csv_content($text, 'utf-8', 'comma');
 

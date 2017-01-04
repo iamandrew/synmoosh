@@ -1,4 +1,4 @@
-- moosh version:
+- synmoosh version:
 - moodle version:
     - database:
 - php version:

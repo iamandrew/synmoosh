@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh user-create [--password=<password> --email=<email>
+ * synmoosh user-create [--password=<password> --email=<email>
  *                   --city=<city> --country=<CN>
  *                   --firstname=<firstname> --lastname=<lastname>]
  *                   <username1> [<username2> ...]
@@ -17,6 +17,7 @@ class UserCreate extends MooshCommand
     {
         parent::__construct('create', 'user');
         $this->addOption('a|auth:', 'authentication plugin, e.g. ldap');
+	$this->addOption('A|avatar:','avatar');
         $this->addOption('p|password:', 'password (NONE for a blank password)');
         $this->addOption('e|email:','email address');
         $this->addOption('c|city:','city');
@@ -35,9 +36,10 @@ class UserCreate extends MooshCommand
         global $CFG, $DB;
 
         require_once $CFG->dirroot . '/user/lib.php';
-        unset($CFG->passwordpolicy);
+        require_once $CFG->libdir . '/gdlib.php';
+	unset($CFG->passwordpolicy);
 
-        foreach ($this->arguments as $argument) {
+        foreach ($this->arguments as $key => $argument) {
             $this->expandOptionsManually(array($argument));
             $options = $this->expandedOptions;
             $user = new \stdClass();
@@ -78,6 +80,14 @@ class UserCreate extends MooshCommand
                 $newuserid = $DB->insert_record('user', $user);
             }else{
                 $newuserid = user_create_user($user);
+            }
+
+	    if ($options['avatar']) {
+                $avatar = file_get_contents($options['avatar']);
+                $newfile = file_put_contents("{$CFG->tempdir}/avatar.png", $avatar);
+                $context = \context_user::instance($newuserid);
+                $pid = process_new_icon($context, 'user', 'icon', 0, "{$CFG->tempdir}/avatar.png", true);
+                $DB->set_field('user', 'picture', $pid, array('id'=>$newuserid));
             }
 
             echo "$newuserid\n";

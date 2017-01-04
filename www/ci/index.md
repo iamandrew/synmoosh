@@ -286,7 +286,7 @@ CI
 		<td><i class="fa fa-check"></i></td>
 	</tr>
 	<tr>
-		<td><a href="/commands/#generate-moosh ">generate-moosh</td>
+		<td><a href="/commands/#generate-synmoosh ">generate-synmoosh</td>
 		<td><i class="fa fa-ban"></i></td>
 		<td><i class="fa fa-ban"></i></td>
 	</tr>

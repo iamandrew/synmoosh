@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,7 +22,7 @@ class GenerateFilemanager extends MooshCommand
 
     public function execute()
     {
-        $loader = new Twig_Loader_Filesystem($this->mooshDir.'/templates');
+        $loader = new Twig_Loader_Filesystem($this->synmooshDir.'/templates');
         $twig = new Twig_Environment($loader,array('debug' => true));
         $twig->addExtension(new Twig_Extension_Debug());
 

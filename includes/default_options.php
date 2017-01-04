@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -10,7 +10,7 @@
 $defaultOptions['global']['author'] = '<author>';
 
 //path to temporary file
-$defaultOptions['global']['tmpfile'] = '/tmp/moosh.tmp';
+$defaultOptions['global']['tmpfile'] = '/tmp/synmoosh.tmp';
 
 $defaultOptions['user']['firstname'] = '%s';
 $defaultOptions['user']['lastname'] = '%s';

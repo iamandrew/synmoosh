@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -70,7 +70,7 @@ class CourseRestore extends MooshCommand {
 
         if (!$options['directory']) {
             //unzip into $CFG->tempdir / "backup" / "auto_restore_" . $split[1];
-            $backupdir = "moosh_restore_" . uniqid();
+            $backupdir = "synmoosh_restore_" . uniqid();
             $path = $CFG->tempdir . DIRECTORY_SEPARATOR . "backup" . DIRECTORY_SEPARATOR . $backupdir;
             if ($this->verbose) {
                 echo "Extracting Moode backup file to: '" . $path . "'\n";

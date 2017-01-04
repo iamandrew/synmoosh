@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -123,10 +123,10 @@ class MooshCommand
     public $topDir;
 
     /**
-     * moosh installation directory.
+     * synmoosh installation directory.
      * @var string
      */
-    public $mooshDir;
+    public $synmooshDir;
 
     /**
      * Default global options
@@ -362,7 +362,7 @@ class MooshCommand
     }
 
     /**
-     * Does the command require writing to ~/.moosh/ directory?
+     * Does the command require writing to ~/.synmoosh/ directory?
      * @return int
      */
     public function requireHomeWriteable()

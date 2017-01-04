@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,7 +22,7 @@ class AuditPasswords extends MooshCommand
     {
         global $CFG;
 
-        require_once($this->mooshDir . '/includes/passwords.php');
+        require_once($this->synmooshDir . '/includes/passwords.php');
         require_once($CFG->libdir . '/authlib.php');
         require_once($CFG->libdir . '/moodlelib.php');
         $options = $this->expandedOptions;

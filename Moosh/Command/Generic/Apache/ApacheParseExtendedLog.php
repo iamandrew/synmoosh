@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -41,7 +41,7 @@ class ApacheParseExtendedLog extends MooshCommand
             cli_error("File '$logfile' does not exist or not readable.");
         }
 
-        require_once($this->mooshDir . '/includes/ApacheLogParser/Parser.class.php');
+        require_once($this->synmooshDir . '/includes/ApacheLogParser/Parser.class.php');
 
         /*
          LogFormat "H: %v U: %{MOODLEUSER}n T: %Ts / %Dus | %{X-Forwarded-For}i %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" moodle_log

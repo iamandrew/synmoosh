@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -12,23 +12,23 @@ use \Moosh\Performance;
 
 $cwd = getcwd();
 
-//try to detect if we are packaged moosh version - e.g. dude where are my libraries
+//try to detect if we are packaged synmoosh version - e.g. dude where are my libraries
 if (file_exists(__DIR__ . '/Moosh')) {
-    $moosh_dir = __DIR__;
-} elseif (file_exists('/usr/share/moosh')) {
-    $moosh_dir = '/usr/share/moosh';
+    $synmoosh_dir = __DIR__;
+} elseif (file_exists('/usr/share/synmoosh')) {
+    $synmoosh_dir = '/usr/share/synmoosh';
 } else {
     die("I can't find my own libraries\n");
 }
 
-$loader = require $moosh_dir . '/vendor/autoload.php';
-$loader->add('Moosh\\', $moosh_dir);
-$loader->add('DiffMatchPatch\\', $moosh_dir . '/vendor/yetanotherape/diff-match-patch/src');
+$loader = require $synmoosh_dir . '/vendor/autoload.php';
+$loader->add('Moosh\\', $synmoosh_dir);
+$loader->add('DiffMatchPatch\\', $synmoosh_dir . '/vendor/yetanotherape/diff-match-patch/src');
 
 $options = array('debug' => true, 'optimizations' => 0);
 
-require_once $moosh_dir . '/includes/functions.php';
-require_once $moosh_dir . '/includes/default_options.php';
+require_once $synmoosh_dir . '/includes/functions.php';
+require_once $synmoosh_dir . '/includes/default_options.php';
 
 
 use GetOptionKit\ContinuousOptionParser;
@@ -57,12 +57,12 @@ if ($app_options->has('moodle-path')) {
     $top_dir = find_top_moodle_dir($cwd);
 }
 
-$moodle_version = moosh_moodle_version($top_dir);
-$local_dir = home_dir() . DIRECTORY_SEPARATOR . '.moosh';
-$viable_versions = moosh_generate_version_list($moodle_version);
+$moodle_version = synmoosh_moodle_version($top_dir);
+$local_dir = home_dir() . DIRECTORY_SEPARATOR . '.synmoosh';
+$viable_versions = synmoosh_generate_version_list($moodle_version);
 $viable_versions[] = 'Generic';
-$namespaced_commands = moosh_load_all_commands($moosh_dir, $viable_versions);
-$namespaced_commands_extra = moosh_load_all_commands($local_dir, $viable_versions);
+$namespaced_commands = synmoosh_load_all_commands($synmoosh_dir, $viable_versions);
+$namespaced_commands_extra = synmoosh_load_all_commands($local_dir, $viable_versions);
 
 if ($namespaced_commands_extra) {
     $namespaced_commands = array_merge($namespaced_commands, $namespaced_commands_extra);
@@ -110,7 +110,7 @@ if (!isset($subcommand_specs[$subcommand])) {
 }
 
 if ($app_options->has('help') || (!$subcommand && !$possible_matches)) {
-    echo "moosh version " . MOOSH_VERSION . "\n";
+    echo "synmoosh version " . MOOSH_VERSION . "\n";
     echo "No command provided, possible commands:\n\t";
     echo implode("\n\t", array_keys($subcommands));
     echo "\n";
@@ -146,18 +146,18 @@ $moodlerc = NULL;
 
 $home_dir = home_dir();
 
-if (file_exists($home_dir . DIRECTORY_SEPARATOR . ".mooshrc.php")) {
-    $moodlerc = $home_dir . DIRECTORY_SEPARATOR . ".mooshrc.php";
-} elseif (file_exists("/etc/moosh/mooshrc.php")) {
-    $moodlerc = "/etc/moosh/mooshrc.php";
-} elseif (file_exists($home_dir . DIRECTORY_SEPARATOR . "mooshrc.php")) {
-    $moodlerc = $home_dir . DIRECTORY_SEPARATOR . "mooshrc.php";
+if (file_exists($home_dir . DIRECTORY_SEPARATOR . ".synmooshrc.php")) {
+    $moodlerc = $home_dir . DIRECTORY_SEPARATOR . ".synmooshrc.php";
+} elseif (file_exists("/etc/synmoosh/synmooshrc.php")) {
+    $moodlerc = "/etc/synmoosh/synmooshrc.php";
+} elseif (file_exists($home_dir . DIRECTORY_SEPARATOR . "synmooshrc.php")) {
+    $moodlerc = $home_dir . DIRECTORY_SEPARATOR . "synmooshrc.php";
 }
 
 $options = NULL;
 if ($moodlerc) {
     if (isset($app_options['verbose'])) {
-        echo "Using '$moodlerc' as moosh runtime configuration file\n";
+        echo "Using '$moodlerc' as synmoosh runtime configuration file\n";
     }
     $options = array();
     require($moodlerc);
@@ -203,11 +203,11 @@ if ($bootstrap_level = $subcommand->bootstrapLevel()) {
         if($moodledata_owner && $shell_user['name'] != $moodledata_owner['user']['name']) {
             cli_error("One of your Moodle data directories ({$moodledata_owner['dir']}) is owned by
 different user ({$moodledata_owner['user']['name']}) than the one that runs the script ({$shell_user['name']}).
-If you're sure you know what you're doing, run moosh with -n flag to skip that test.");
+If you're sure you know what you're doing, run synmoosh with -n flag to skip that test.");
         }
     }
 
-    //gather more info based on the directory where moosh was run
+    //gather more info based on the directory where synmoosh was run
     $relative_dir = substr($cwd, strlen($top_dir));
     $relative_dir = trim($relative_dir, '/');
     if ($app_options->has('verbose')) {
@@ -251,7 +251,7 @@ if ($app_options->has('verbose')) {
 }
 
 $subcommand->cwd = $cwd;
-$subcommand->mooshDir = $moosh_dir;
+$subcommand->synmooshDir = $synmoosh_dir;
 $subcommand->defaults = $options;
 
 // Process the arguments.
@@ -268,7 +268,7 @@ if ($app_options->has('verbose')) {
 // Create directory for configuration if one is not there already.
 if($subcommand->requireHomeWriteable() && !file_exists($local_dir)) {
     if(!mkdir($local_dir)) {
-        cli_error("Could not create moosh directory in '$local_dir' and this command requires it.");
+        cli_error("Could not create synmoosh directory in '$local_dir' and this command requires it.");
     }
 }
 

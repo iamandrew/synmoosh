@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,10 +29,10 @@ class ToolsCodeCheck extends MooshCommand
     public function execute()
     {
 
-        require_once($this->mooshDir."/includes/codesniffer_cli.php");
-        require_once($this->mooshDir."/includes/coderepair/CodeRepair.php");
+        require_once($this->synmooshDir."/includes/codesniffer_cli.php");
+        require_once($this->synmooshDir."/includes/coderepair/CodeRepair.php");
 
-        $moodle_sniffs = $this->mooshDir."/vendor/moodlerooms/moodle-coding-standard/moodle";
+        $moodle_sniffs = $this->synmooshDir."/vendor/moodlerooms/moodle-coding-standard/moodle";
 
         $options = $this->expandedOptions;
         $interactive = $options['interactive'];

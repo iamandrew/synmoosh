@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@ class FormAdd extends MooshCommand
     public function execute()
     {
 
-        $loader = new Twig_Loader_Filesystem($this->mooshDir.'/templates');
+        $loader = new Twig_Loader_Filesystem($this->synmooshDir.'/templates');
         $twig = new Twig_Environment($loader,array('debug' => true));
         $twig->addExtension(new Twig_Extension_Debug());
 
@@ -65,7 +65,7 @@ class FormAdd extends MooshCommand
     protected function onErrorHelp()
     {
         $elements = array();
-        foreach(glob($this->mooshDir . "/templates/form/form-element-*.twig") as $file) {
+        foreach(glob($this->synmooshDir . "/templates/form/form-element-*.twig") as $file) {
             $base = basename($file);
             $matches = null;
             if(preg_match('/form-element-(.*).twig/',$file,$matches)) {

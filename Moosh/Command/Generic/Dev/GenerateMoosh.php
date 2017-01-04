@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -16,7 +16,7 @@ class GenerateMoosh extends MooshCommand
 {
     public function __construct()
     {
-        parent::__construct('moosh', 'generate');
+        parent::__construct('synmoosh', 'generate');
 
         $this->addArgument('category-command');
     }
@@ -28,7 +28,7 @@ class GenerateMoosh extends MooshCommand
 
     public function execute()
     {
-        $loader = new Twig_Loader_Filesystem($this->mooshDir . '/templates');
+        $loader = new Twig_Loader_Filesystem($this->synmooshDir . '/templates');
         $twig = new Twig_Environment($loader);
 
         $command = explode('-', $this->arguments[0], 2);
@@ -41,7 +41,7 @@ class GenerateMoosh extends MooshCommand
         $dirPath = $this->cwd . '/Moosh/Command/Moodle23/' . ucfirst($command[0]);
         $filePath = $dirPath . '/' . $fileName;
 
-        $content = $twig->render('moosh/command.twig', array('category' => $command[0], 'command' => $command[1]));
+        $content = $twig->render('synmoosh/command.twig', array('category' => $command[0], 'command' => $command[1]));
         if (file_exists($filePath)) {
             cli_problem("File $fileName exists, dumping output instead of saving as a new file");
             echo $content;

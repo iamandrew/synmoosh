@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @author     2014 Joby Harding
  * @copyright  2012 onwards Tomasz Muras

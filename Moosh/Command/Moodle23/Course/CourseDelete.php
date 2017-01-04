@@ -3,7 +3,7 @@
 /**
  * Delete course by id.
  *
- * moosh course-delete [<id1> <id2> ...]
+ * synmoosh course-delete [<id1> <id2> ...]
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

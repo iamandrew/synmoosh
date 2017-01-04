@@ -1,7 +1,7 @@
 <?php
 
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2013 Matteo Mosangini
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

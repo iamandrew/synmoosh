@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -165,7 +165,7 @@ function array_merge_recursive_distinct(array &$array1, array &$array2)
  * @param string $topdir moodle directory
  * @return string a branch version (e.g. 23, 24, 25, etc.)
  */
-function moosh_moodle_version($topdir, $default = 23)
+function synmoosh_moodle_version($topdir, $default = 23)
 {
     if ($topdir && is_dir($topdir) && file_exists($topdir . '/version.php')) {
 
@@ -194,7 +194,7 @@ function moosh_moodle_version($topdir, $default = 23)
     return $default;
 }
 
-function moosh_generate_version_list($upto, $from = 19)
+function synmoosh_generate_version_list($upto, $from = 19)
 {
     $upto = intval($upto);
     $from = intval($from);
@@ -209,7 +209,7 @@ function moosh_generate_version_list($upto, $from = 19)
 }
 
 /**
- * Return full namespaced classname of all moosh commands.
+ * Return full namespaced classname of all synmoosh commands.
  * The command for the latest $viable_version will be used.
  * For example, if viable versions contains 25, and these commands exist:
  *   * Moosh/Command/Moodle23/Category/CategoryCreate.php
@@ -219,7 +219,7 @@ function moosh_generate_version_list($upto, $from = 19)
  * @param string $srcdir directory containing the Moosh directory
  * @param array $viable_versions array of ascending branch numbers representing Moodle versions, i.e (23, 24, 25, 26) that can be used
  */
-function moosh_load_all_commands($srcdir, $viable_versions)
+function synmoosh_load_all_commands($srcdir, $viable_versions)
 {
     //load all commands
     $classnames = array();

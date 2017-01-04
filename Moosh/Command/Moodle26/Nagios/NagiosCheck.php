@@ -1,6 +1,6 @@
 <?php
 /**
- * moosh - Moodle Shell
+ * synmoosh - Moodle Shell
  *
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,9 +28,9 @@ class NagiosCheck extends MooshCommand {
         /** Ugly hack to get this working. Forking doesn't work here
          * because moodle can't log entries from forked process into db.
          * We need this run in external process because apache doesn't can't
-         * give usvalid cookie before moosh process ends.
+         * give usvalid cookie before synmoosh process ends.
          */
-        $loginasadmin = run_external_command("moosh admin-login", "admin-login failed");
+        $loginasadmin = run_external_command("synmoosh admin-login", "admin-login failed");
 
         $target = $CFG->wwwroot . '/admin/index.php';
         $credentials = explode(":", $loginasadmin[0]);
